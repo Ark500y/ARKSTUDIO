@@ -50,13 +50,12 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { label: "Home", href: "#hero" },
-    { label: "About", href: "#about" },
-    { label: "Projects", href: "#projects" },
-    { label: "Capabilities", href: "#capabilities" },
-    { label: "Services", href: "#services" },
-    { label: "Process", href: "#process" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Projects", href: "/projects" },
+    { label: "Services", href: "/services" },
+    { label: "Process", href: "/process" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -71,7 +70,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo & Brand Identity */}
           <Link
-            href="#hero"
+            href="/"
             onClick={() => playTick(700)}
             className="flex items-center gap-3.5 group"
             data-cursor-text="ARK®"
@@ -92,7 +91,7 @@ export default function Navbar() {
               <span className="text-xs font-medium tracking-wide text-[#F2EFE9]/90 group-hover:text-white transition-colors">
                 Abdul Rehman
               </span>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-[#A4A4AD]">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#E2DDD5]/70">
                 Creative Developer
               </span>
             </div>
@@ -101,7 +100,7 @@ export default function Navbar() {
           {/* Desktop Nav Links */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-2 px-3 py-1.5 rounded-full bg-[#111318]/70 border border-white/[0.08] backdrop-blur-md">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => playTick(750)}
@@ -109,7 +108,7 @@ export default function Navbar() {
                 data-cursor-text="GO"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -143,7 +142,7 @@ export default function Navbar() {
 
             {/* Let's Talk Conversion Button */}
             <a
-              href="#contact"
+              href="/contact"
               onClick={() => playTick(900)}
               className="group relative inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-transparent hover:bg-[#B99B70] border border-[#B99B70]/70 hover:border-[#B99B70] text-[#F2EFE9] hover:text-[#08090D] text-xs font-semibold tracking-wide transition-all duration-300 shadow-[0_0_20px_rgba(185,155,112,0.15)] hover:shadow-[0_0_25px_rgba(185,155,112,0.5)]"
               data-cursor-text="TALK"
@@ -183,7 +182,7 @@ export default function Navbar() {
 
           <nav className="flex flex-col gap-4 mt-6">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => {
@@ -193,7 +192,7 @@ export default function Navbar() {
                 className="text-lg font-display font-medium text-[#F2EFE9] hover:text-[#B99B70] transition-colors py-2 border-b border-white/[0.04]"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
