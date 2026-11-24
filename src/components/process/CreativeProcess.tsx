@@ -48,7 +48,7 @@ export default function CreativeProcess() {
               Zero Friction. Pure Velocity.
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-[#A4A4AD] font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-[#E2DDD5]/85 font-light leading-relaxed">
             Every successful project follows a battle-tested timeline from initial discovery to high-performance launch.
           </p>
         </div>
@@ -64,19 +64,19 @@ export default function CreativeProcess() {
                 className={`p-3.5 rounded-xl border transition-all text-left flex flex-col justify-between ${
                   isCurrent
                     ? "bg-[#161922] border-[#B99B70] shadow-[0_0_20px_rgba(185,155,112,0.2)]"
-                    : "bg-[#0E1015] border-white/[0.06] hover:border-white/20 text-[#A4A4AD]"
+                    : "bg-[#0E1015] border-white/[0.06] hover:border-white/20 text-[#E2DDD5]/70"
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className={`font-mono text-xs font-bold ${isCurrent ? "text-[#B99B70]" : "text-white/40"}`}>
+                  <span className={`font-mono text-xs font-bold ${isCurrent ? "text-[#B99B70]" : "text-[#E2DDD5]/70"}`}>
                     {p.step}
                   </span>
-                  <div className={`${isCurrent ? "text-[#B99B70]" : "text-white/30"}`}>
+                  <div className={`${isCurrent ? "text-[#B99B70]" : "text-[#E2DDD5]/60"}`}>
                     {getStepIcon(p.phase)}
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono uppercase tracking-wider text-white/50">
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-[#E2DDD5]/75">
                     {p.phase}
                   </div>
                   <div className="text-xs font-display font-semibold text-[#F2EFE9] truncate">
@@ -101,7 +101,7 @@ export default function CreativeProcess() {
                 <span className="px-2.5 py-1 rounded bg-[#B99B70]/10 border border-[#B99B70]/20 text-[11px] font-mono text-[#B99B70] font-semibold">
                   STAGE {CREATIVE_PROCESS[activeStep].step} — {CREATIVE_PROCESS[activeStep].phase}
                 </span>
-                <span className="text-xs font-mono text-[#A4A4AD]">
+                <span className="text-xs font-mono text-[#E2DDD5]/80">
                   Timeline: {CREATIVE_PROCESS[activeStep].timeframe}
                 </span>
               </div>
@@ -110,7 +110,7 @@ export default function CreativeProcess() {
                 {CREATIVE_PROCESS[activeStep].title}
               </h3>
 
-              <p className="text-sm sm:text-base text-[#A4A4AD] leading-relaxed mb-8 font-light">
+              <p className="text-sm sm:text-base text-[#E2DDD5]/85 leading-relaxed mb-8 font-light">
                 {CREATIVE_PROCESS[activeStep].description}
               </p>
 
@@ -118,7 +118,7 @@ export default function CreativeProcess() {
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setActiveStep((prev) => (prev > 0 ? prev - 1 : CREATIVE_PROCESS.length - 1))}
-                  className="px-4 py-2 rounded-full border border-white/10 hover:border-[#B99B70] text-xs font-mono text-[#A4A4AD] hover:text-[#F2EFE9] transition-all"
+                  className="px-4 py-2 rounded-full border border-white/10 hover:border-[#B99B70] text-xs font-mono text-[#E2DDD5]/80 hover:text-[#F2EFE9] transition-all"
                 >
                   ← Previous Stage
                 </button>

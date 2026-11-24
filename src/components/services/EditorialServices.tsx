@@ -24,14 +24,14 @@ export default function EditorialServices() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16 sm:mb-24 pb-8 border-b border-[#111318]/15">
           <div className="lg:col-span-8">
             <div className="flex items-center gap-3 mb-3">
-              <span className="w-8 h-[1px] bg-[#B99B70]" />
-              <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#B99B70] font-semibold">
+              <span className="w-8 h-[1px] bg-[#7A5B2E]" />
+              <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#7A5B2E] font-semibold">
                 05 / Client Services & Commercial Solutions
               </span>
             </div>
             <h2 className="font-display font-bold text-3xl sm:text-5xl lg:text-6xl text-[#111318] tracking-tight">
               Crafted For Impact. <br />
-              <span className="font-serif italic font-normal text-[#B99B70]">
+              <span className="font-serif italic font-normal text-[#7A5B2E]">
                 Built For Conversion.
               </span>
             </h2>
@@ -57,11 +57,11 @@ export default function EditorialServices() {
                 {/* Header Row */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="flex items-center gap-6">
-                    <span className="font-mono text-xs sm:text-sm text-[#B99B70] font-semibold">
+                    <span className="font-mono text-xs sm:text-sm text-[#7A5B2E] font-semibold">
                       {service.number}
                     </span>
                     <div>
-                      <h3 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-[#111318] group-hover:text-[#B99B70] transition-colors">
+                      <h3 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-[#111318] group-hover:text-[#7A5B2E] transition-colors">
                         {service.title}
                       </h3>
                       <span className="text-xs font-mono text-[#111318]/50 block sm:hidden mt-1 font-arabic">
@@ -74,11 +74,11 @@ export default function EditorialServices() {
                     <span className="hidden md:inline-block font-arabic text-sm text-[#111318]/50">
                       {service.arabicTitle}
                     </span>
-                    <span className="text-xs font-mono text-[#B99B70] bg-[#111318]/5 px-3 py-1 rounded-full border border-[#111318]/10">
+                    <span className="text-xs font-mono text-[#7A5B2E] bg-[#111318]/5 px-3 py-1 rounded-full border border-[#111318]/10 font-medium">
                       {service.timeline}
                     </span>
                     <div
-                      className={`p-2 rounded-full border border-[#111318]/15 group-hover:border-[#B99B70] transition-transform duration-300 ${
+                      className={`p-2 rounded-full border border-[#111318]/15 group-hover:border-[#7A5B2E] transition-transform duration-300 ${
                         isOpen ? "rotate-180 bg-[#111318] text-[#F2EFE9]" : "bg-transparent text-[#111318]"
                       }`}
                     >
@@ -103,13 +103,13 @@ export default function EditorialServices() {
                       </div>
 
                       <div className="p-4 rounded-xl bg-white/85 border border-[#111318]/10 shadow-sm">
-                        <h4 className="text-xs font-mono uppercase tracking-wider text-[#B99B70] font-semibold mb-2">
+                        <h4 className="text-xs font-mono uppercase tracking-wider text-[#7A5B2E] font-semibold mb-2">
                           Client Value Delivery
                         </h4>
                         <ul className="space-y-1.5 text-xs text-[#111318]/80 font-light">
                           {service.valueProps.map((vp, idx) => (
                             <li key={idx} className="flex items-start gap-2">
-                              <span className="text-[#B99B70] font-bold">✦</span>
+                              <span className="text-[#7A5B2E] font-bold">✦</span>
                               <span>{vp}</span>
                             </li>
                           ))}
@@ -126,7 +126,7 @@ export default function EditorialServices() {
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#111318]/85">
                           {service.deliverables.map((deliv, idx) => (
                             <li key={idx} className="flex items-center gap-2 p-2 rounded-lg bg-white/60 border border-[#111318]/5">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#B99B70]" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#7A5B2E]" />
                               <span>{deliv}</span>
                             </li>
                           ))}
@@ -147,9 +147,9 @@ export default function EditorialServices() {
                         </div>
 
                         <a
-                          href="#contact"
+                          href="/contact"
                           onClick={() => playTick(800)}
-                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#111318] hover:bg-[#B99B70] text-[#F2EFE9] hover:text-[#08090D] text-xs font-display font-semibold transition-all duration-300 shadow-md"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#111318] hover:bg-[#7A5B2E] text-[#F2EFE9] hover:text-[#08090D] text-xs font-display font-semibold transition-all duration-300 shadow-md"
                           data-cursor-text="INQUIRE"
                         >
                           <span>Request Proposal</span>

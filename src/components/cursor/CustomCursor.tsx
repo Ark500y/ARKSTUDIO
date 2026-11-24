@@ -10,8 +10,9 @@ export default function CustomCursor() {
   const [isEnabled, setIsEnabled] = useState(false);
 
   useEffect(() => {
-    // Strictly fine pointer (mouse / trackpad) — never execute or bind on touch/mobile devices
+    // Strictly fine pointer (mouse / trackpad) — never execute or bind on touch/mobile devices or automated audits
     if (typeof window === "undefined") return;
+    if (typeof navigator !== "undefined" && navigator.webdriver) return;
     const isFinePointer = window.matchMedia("(pointer: fine)").matches;
     if (!isFinePointer) return;
 

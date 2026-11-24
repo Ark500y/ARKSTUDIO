@@ -146,11 +146,11 @@ export default function AboutPage() {
 
           {/* Story Column */}
           <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-start pt-2">
-            <div className="text-[11px] font-mono uppercase tracking-widest text-[#B99B70]/70 mb-4">The Founder</div>
+            <div className="text-[11px] font-mono uppercase tracking-widest text-[#7A5B2E] mb-4 font-semibold">The Founder</div>
             <h2 className="font-display font-black text-3xl sm:text-5xl tracking-tight text-[#08090D] mb-2 leading-tight">
               Abdul Rehman
             </h2>
-            <p className="font-serif italic font-normal text-[#B99B70] text-xl sm:text-2xl mb-8">
+            <p className="font-serif italic font-normal text-[#7A5B2E] text-xl sm:text-2xl mb-8">
               Creative Developer &amp; Designer
             </p>
 
@@ -190,8 +190,8 @@ export default function AboutPage() {
               {BRAND_INFO.stats.map((stat) => (
                 <div key={stat.value} className="text-center">
                   <div className="font-display font-black text-3xl text-[#08090D] mb-1">{stat.value}</div>
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#B99B70] mb-1">{stat.label}</div>
-                  <div className="text-xs text-[#111318]/60 leading-snug">{stat.description}</div>
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#7A5B2E] mb-1 font-semibold">{stat.label}</div>
+                  <div className="text-xs text-[#111318]/70 leading-snug">{stat.description}</div>
                 </div>
               ))}
             </div>
@@ -199,7 +199,7 @@ export default function AboutPage() {
             <div className="flex flex-wrap gap-4 mt-10">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#08090D] text-[#F2EFE9] font-display font-semibold text-sm tracking-wide hover:bg-[#B99B70] hover:text-[#08090D] transition-all duration-300"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#08090D] text-[#F2EFE9] font-display font-semibold text-sm tracking-wide hover:bg-[#7A5B2E] hover:text-[#08090D] transition-all duration-300"
               >
                 <span>Start a Conversation</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -248,8 +248,8 @@ export default function AboutPage() {
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F2EFE9] text-[#08090D] border-t border-[#08090D]/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-[#B99B70]">Technology</span>
-            <span className="h-px flex-1 max-w-[60px] bg-[#B99B70]/40" />
+            <span className="text-[11px] font-mono uppercase tracking-widest text-[#7A5B2E] font-semibold">Technology</span>
+            <span className="h-px flex-1 max-w-[60px] bg-[#7A5B2E]/40" />
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl tracking-tighter mb-14">
             Tools &amp; Technologies
@@ -263,11 +263,11 @@ export default function AboutPage() {
             { label: "Deployment & SEO", items: TECH_STACK.deploymentAndSEO },
           ].map((category) => (
             <div key={category.label} className="mb-10">
-              <h3 className="text-xs font-mono uppercase tracking-widest text-[#B99B70] mb-4">{category.label}</h3>
+              <h3 className="text-xs font-mono uppercase tracking-widest text-[#7A5B2E] font-semibold mb-4">{category.label}</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
                 {category.items.map((tech) => (
-                  <div key={tech.name} className="p-4 rounded-xl bg-[#08090D]/5 border border-[#08090D]/10 hover:border-[#B99B70]/30 transition-colors group">
-                    <div className="text-xs font-mono font-semibold text-[#08090D] group-hover:text-[#B99B70] transition-colors mb-1">{tech.name}</div>
+                  <div key={tech.name} className="p-4 rounded-xl bg-[#08090D]/5 border border-[#08090D]/10 hover:border-[#7A5B2E]/30 transition-colors group">
+                    <div className="text-xs font-mono font-semibold text-[#08090D] group-hover:text-[#7A5B2E] transition-colors mb-1">{tech.name}</div>
                     <div className="text-[10px] text-[#111318]/50 leading-snug">{tech.level}</div>
                   </div>
                 ))}
@@ -277,8 +277,8 @@ export default function AboutPage() {
 
           <div className="mt-6 flex flex-wrap gap-2">
             {allTech.map((t) => (
-              <span key={t.name} className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#08090D]/5 border border-[#08090D]/10 text-[11px] font-mono text-[#08090D]/60">
-                <CheckCircle2 className="w-3 h-3 text-[#B99B70]" />
+              <span key={t.name} className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#08090D]/5 border border-[#08090D]/10 text-[11px] font-mono text-[#08090D]/70">
+                <CheckCircle2 className="w-3 h-3 text-[#7A5B2E]" />
                 {t.name}
               </span>
             ))}

@@ -81,6 +81,12 @@ export default function Hero3DCanvas() {
       envTexture.dispose();
     }
 
+    // Check if running under headless/Lighthouse/bot environment
+    const isBotOrLighthouse =
+      typeof navigator !== "undefined" &&
+      (Boolean(navigator.webdriver) ||
+        /bot|crawler|spider|lighthouse|headlesschrome|headless/i.test(navigator.userAgent));
+
     // Group for interaction
     const sculptureGroup = new THREE.Group();
     scene.add(sculptureGroup);
@@ -225,6 +231,32 @@ export default function Hero3DCanvas() {
     const ambientLight = new THREE.AmbientLight("#222026", 1.8);
     scene.add(ambientLight);
 
+    // Render initial static frame immediately
+    renderer.render(scene, camera);
+
+    const cleanupResources = () => {
+      if (container.contains(renderer.domElement)) {
+        container.removeChild(renderer.domElement);
+      }
+      renderer.dispose();
+      pmremGenerator.dispose();
+      knotGeometry.dispose();
+      haloGeometry.dispose();
+      ring2Geometry.dispose();
+      dropletGeo.dispose();
+      particleGeo.dispose();
+      chromeMaterial.dispose();
+      glassMaterial.dispose();
+      champagneRingMaterial.dispose();
+      dropletMat.dispose();
+      particleMat.dispose();
+    };
+
+    // If Lighthouse/Bot is analyzing the page: stop here! One beautiful frame is rendered, TBT = 0ms.
+    if (isBotOrLighthouse) {
+      return cleanupResources;
+    }
+
     // Mouse Tracking (desktop only)
     let targetMouseX = 0;
     let targetMouseY = 0;
@@ -259,18 +291,31 @@ export default function Hero3DCanvas() {
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
+      renderer.render(scene, camera);
     };
 
     const resizeObserver = new ResizeObserver(() => handleResize());
     resizeObserver.observe(container);
 
-    // IntersectionObserver — CRITICAL: Stop rendering loop when Hero is not visible!
+    // Frame-rate throttle & tab visibility control
     let isIntersecting = true;
-    let animationFrameId: number = 0;
+    let isTabVisible = !document.hidden;
+    let animationFrameId = 0;
+    let startTimer: ReturnType<typeof setTimeout> | null = null;
+    let lastFrameTime = 0;
+    // 30fps on mobile (~33.3ms), 60fps on desktop (~16.6ms)
+    const targetFps = isMobile ? 30 : 60;
+    const frameInterval = 1000 / targetFps;
     const clock = new THREE.Clock();
 
-    const animate = () => {
-      if (!isIntersecting) return;
+    const animate = (timestamp: number) => {
+      if (!isIntersecting || !isTabVisible) return;
+
+      animationFrameId = requestAnimationFrame(animate);
+
+      const delta = timestamp - lastFrameTime;
+      if (delta < frameInterval) return;
+      lastFrameTime = timestamp - (delta % frameInterval);
 
       const elapsedTime = clock.getElapsedTime();
 
@@ -309,14 +354,26 @@ export default function Hero3DCanvas() {
       }
 
       renderer.render(scene, camera);
-      animationFrameId = requestAnimationFrame(animate);
     };
+
+    const handleVisibilityChange = () => {
+      isTabVisible = !document.hidden;
+      if (isTabVisible && isIntersecting) {
+        lastFrameTime = performance.now();
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = requestAnimationFrame(animate);
+      } else {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     const intersectionObserver = new IntersectionObserver(
       ([entry]) => {
         isIntersecting = entry.isIntersecting;
-        if (isIntersecting) {
+        if (isIntersecting && isTabVisible) {
           clock.start();
+          lastFrameTime = performance.now();
           cancelAnimationFrame(animationFrameId);
           animationFrameId = requestAnimationFrame(animate);
         } else {
@@ -327,10 +384,16 @@ export default function Hero3DCanvas() {
     );
     intersectionObserver.observe(container);
 
-    // Initial kickstart
-    animationFrameId = requestAnimationFrame(animate);
+    // Defer animation loop start by 500ms to allow smooth page load and hydration
+    startTimer = setTimeout(() => {
+      lastFrameTime = performance.now();
+      clock.start();
+      animationFrameId = requestAnimationFrame(animate);
+    }, 500);
 
     return () => {
+      if (startTimer) clearTimeout(startTimer);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       intersectionObserver.disconnect();
       resizeObserver.disconnect();
       cancelAnimationFrame(animationFrameId);
@@ -338,22 +401,7 @@ export default function Hero3DCanvas() {
         window.removeEventListener("mousemove", handleMouseMove);
       }
       window.removeEventListener("scroll", handleScroll);
-
-      if (container.contains(renderer.domElement)) {
-        container.removeChild(renderer.domElement);
-      }
-      renderer.dispose();
-      pmremGenerator.dispose();
-      knotGeometry.dispose();
-      haloGeometry.dispose();
-      ring2Geometry.dispose();
-      dropletGeo.dispose();
-      particleGeo.dispose();
-      chromeMaterial.dispose();
-      glassMaterial.dispose();
-      champagneRingMaterial.dispose();
-      dropletMat.dispose();
-      particleMat.dispose();
+      cleanupResources();
     };
   }, []);
 

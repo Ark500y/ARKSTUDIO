@@ -142,7 +142,7 @@ Sent via ark.portfolio conversion engine`;
               LET&apos;S BUILD SOMETHING EXCEPTIONAL.
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-[#A4A4AD] font-light leading-relaxed max-w-2xl">
+          <p className="text-sm sm:text-base text-[#E2DDD5]/85 font-light leading-relaxed max-w-2xl">
             Whether you need a premium business website, a complete digital identity or a custom web experience, let&apos;s discuss your next project.
           </p>
         </div>
@@ -167,13 +167,13 @@ Sent via ark.portfolio conversion engine`;
               <h3 className="font-display font-bold text-xl sm:text-2xl text-[#F2EFE9] mb-2">
                 Instant WhatsApp Chat
               </h3>
-              <p className="text-xs sm:text-sm text-[#A4A4AD] leading-relaxed mb-6 font-light">
+              <p className="text-xs sm:text-sm text-[#E2DDD5]/80 leading-relaxed mb-6 font-light">
                 Have a quick question or want to chat about project feasibility right away? Send me a direct WhatsApp voice note or message.
               </p>
 
               <div className="flex items-center justify-between p-3.5 rounded-xl bg-black/60 border border-white/10 mb-5">
                 <div className="flex flex-col">
-                  <span className="text-[10px] font-mono text-[#A4A4AD] uppercase">Direct WhatsApp Line</span>
+                  <span className="text-[10px] font-mono text-[#E2DDD5]/70 uppercase">Direct WhatsApp Line</span>
                   <span className="font-mono text-sm sm:text-base text-[#F2EFE9] font-medium">
                     {BRAND_INFO.contact.phoneDisplay}
                   </span>
@@ -181,7 +181,7 @@ Sent via ark.portfolio conversion engine`;
                 <button
                   type="button"
                   onClick={() => handleCopy(BRAND_INFO.contact.phoneDisplay, "phone")}
-                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-[#A4A4AD] hover:text-[#F2EFE9] transition-colors"
+                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-[#E2DDD5]/75 hover:text-[#F2EFE9] transition-colors"
                   title="Copy Phone Number"
                 >
                   {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -204,7 +204,7 @@ Sent via ark.portfolio conversion engine`;
             {/* Direct Email Card */}
             <div className="p-6 rounded-2xl bg-[#0F1117] border border-white/[0.08] hover:border-white/20 transition-colors">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono uppercase tracking-wider text-[#A4A4AD]">
+                <span className="text-xs font-mono uppercase tracking-wider text-[#E2DDD5]/75">
                   Direct Email
                 </span>
                 <Mail className="w-4 h-4 text-[#B99B70]" />
@@ -220,7 +220,7 @@ Sent via ark.portfolio conversion engine`;
                 <button
                   type="button"
                   onClick={() => handleCopy(BRAND_INFO.contact.email, "email")}
-                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-[#A4A4AD] hover:text-[#F2EFE9] transition-colors shrink-0"
+                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-[#E2DDD5]/75 hover:text-[#F2EFE9] transition-colors shrink-0"
                   title="Copy Email"
                 >
                   {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -229,7 +229,7 @@ Sent via ark.portfolio conversion engine`;
             </div>
 
             {/* Location & Timezone Guarantees */}
-            <div className="p-5 rounded-2xl bg-[#0F1117] border border-white/[0.08] space-y-2.5 text-xs text-[#A4A4AD]">
+            <div className="p-5 rounded-2xl bg-[#0F1117] border border-white/[0.08] space-y-2.5 text-xs text-[#E2DDD5]/80">
               <div className="flex items-center gap-2">
                 <Clock className="w-3.5 h-3.5 text-[#B99B70]" />
                 <span>Operating from Sargodha, PK (UTC+5 PKT)</span>
@@ -251,7 +251,7 @@ Sent via ark.portfolio conversion engine`;
             <h3 className="font-display font-bold text-2xl text-[#F2EFE9] mb-1">
               Project Inquiry Form
             </h3>
-            <p className="text-xs text-[#A4A4AD] font-light mb-8">
+            <p className="text-xs text-[#E2DDD5]/80 font-light mb-8">
               Fill in your project details. Submissions immediately open a preformatted brief in WhatsApp or your email client.
             </p>
 
@@ -260,7 +260,7 @@ Sent via ark.portfolio conversion engine`;
               {/* Row 1: Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono uppercase text-[#A4A4AD] mb-1.5">
+                  <label className="block text-xs font-mono uppercase text-[#E2DDD5]/80 mb-1.5">
                     Your Full Name *
                   </label>
                   <input
@@ -274,7 +274,7 @@ Sent via ark.portfolio conversion engine`;
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase text-[#A4A4AD] mb-1.5">
+                  <label className="block text-xs font-mono uppercase text-[#E2DDD5]/80 mb-1.5">
                     Your Email Address *
                   </label>
                   <input
@@ -290,7 +290,7 @@ Sent via ark.portfolio conversion engine`;
 
               {/* Row 2: Website URL */}
               <div>
-                <label className="block text-xs font-mono uppercase text-[#A4A4AD] mb-1.5">
+                <label className="block text-xs font-mono uppercase text-[#E2DDD5]/80 mb-1.5">
                   Business or Current Website URL (Optional)
                 </label>
                 <input
@@ -304,7 +304,7 @@ Sent via ark.portfolio conversion engine`;
 
               {/* Row 3: Required Service Selection */}
               <div>
-                <label className="block text-xs font-mono uppercase text-[#A4A4AD] mb-2">
+                <label className="block text-xs font-mono uppercase text-[#E2DDD5]/80 mb-2">
                   Required Service
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -321,7 +321,7 @@ Sent via ark.portfolio conversion engine`;
                         className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all text-left ${
                           isSelected
                             ? "bg-[#B99B70] text-[#08090D] font-bold shadow-md"
-                            : "bg-white/[0.04] text-[#A4A4AD] hover:text-[#F2EFE9] border border-white/[0.08]"
+                            : "bg-white/[0.04] text-[#E2DDD5]/80 hover:text-[#F2EFE9] border border-white/[0.08]"
                         }`}
                       >
                         {s.title}
@@ -337,7 +337,7 @@ Sent via ark.portfolio conversion engine`;
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
                       formData.service === "Complete Brand + Bilingual Website"
                         ? "bg-[#B99B70] text-[#08090D] font-bold shadow-md"
-                        : "bg-white/[0.04] text-[#A4A4AD] hover:text-[#F2EFE9] border border-white/[0.08]"
+                        : "bg-white/[0.04] text-[#E2DDD5]/80 hover:text-[#F2EFE9] border border-white/[0.08]"
                     }`}
                   >
                     Complete Brand + Bilingual Website
@@ -345,9 +345,9 @@ Sent via ark.portfolio conversion engine`;
                 </div>
               </div>
 
-              {/* Row 4: Tactile Budget Pills (Replacing boring dropdown) */}
+              {/* Row 4: Tactile Budget Pills */}
               <div>
-                <label className="block text-xs font-mono uppercase text-[#A4A4AD] mb-2">
+                <label className="block text-xs font-mono uppercase text-[#E2DDD5]/80 mb-2">
                   Estimated Budget Tier
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -364,7 +364,7 @@ Sent via ark.portfolio conversion engine`;
                         className={`p-2.5 rounded-xl text-xs font-mono transition-all border text-center ${
                           isSelected
                             ? "bg-[#B99B70]/15 border-[#B99B70] text-[#B99B70] font-bold shadow-[0_0_15px_rgba(185,155,112,0.25)]"
-                            : "bg-black/50 border-white/10 text-[#A4A4AD] hover:border-white/20"
+                            : "bg-black/50 border-white/10 text-[#E2DDD5]/80 hover:border-white/20"
                         }`}
                       >
                         {tier}
@@ -376,7 +376,7 @@ Sent via ark.portfolio conversion engine`;
 
               {/* Row 5: Description */}
               <div>
-                <label className="block text-xs font-mono uppercase text-[#A4A4AD] mb-1.5">
+                <label className="block text-xs font-mono uppercase text-[#E2DDD5]/80 mb-1.5">
                   Project Description & Goals
                 </label>
                 <textarea
@@ -410,7 +410,7 @@ Sent via ark.portfolio conversion engine`;
                 </button>
               </div>
 
-              <p className="text-[11px] font-mono text-center text-[#A4A4AD]/60 pt-1">
+              <p className="text-[11px] font-mono text-center text-[#E2DDD5]/75 pt-1">
                 🔒 No spam. Your information is kept strictly private.
               </p>
             </form>

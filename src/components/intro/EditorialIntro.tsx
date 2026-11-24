@@ -27,8 +27,8 @@ export default function EditorialIntro() {
         
         {/* Section Label */}
         <div className="flex items-center gap-3 mb-8">
-          <span className="w-8 h-[1px] bg-[#B99B70]" />
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#B99B70] font-semibold">
+          <span className="w-8 h-[1px] bg-[#7A5B2E]" />
+          <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#7A5B2E] font-semibold">
             02 / Editorial Introduction
           </span>
         </div>
@@ -38,13 +38,13 @@ export default function EditorialIntro() {
           <div className="lg:col-span-8">
             <h2 className="font-display font-bold text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] text-[#111318]">
               DESIGN IS MORE THAN <br />
-              <span className="font-serif italic font-normal text-[#B99B70]">
+              <span className="font-serif italic font-normal text-[#7A5B2E]">
                 WHAT YOU SEE.
               </span>
             </h2>
           </div>
           <div className="lg:col-span-4 lg:pl-8 border-l border-[#111318]/15">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#B99B70] font-semibold block mb-2">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#7A5B2E] font-semibold block mb-2">
               The Architecture
             </span>
             <p className="font-display font-medium text-lg sm:text-xl text-[#111318] leading-snug">
@@ -74,9 +74,9 @@ export default function EditorialIntro() {
               <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#08090D]/90 backdrop-blur-md border border-white/10 text-white">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="font-display font-semibold text-sm text-[#F2EFE9]">
+                    <p className="font-display font-semibold text-sm text-[#F2EFE9]">
                       Abdul Rehman
-                    </h4>
+                    </p>
                     <p className="text-[11px] font-mono text-[#B99B70]">
                       Independent Creative Developer
                     </p>
@@ -90,7 +90,7 @@ export default function EditorialIntro() {
 
             {/* Architectural coordinate stamp */}
             <div className="hidden sm:flex items-center gap-2 absolute -bottom-5 -right-4 bg-[#F2EFE9] border border-[#111318]/15 px-3.5 py-2 rounded-xl text-[10px] font-mono text-[#111318]/70 shadow-sm">
-              <MapPin className="w-3 h-3 text-[#B99B70]" />
+              <MapPin className="w-3 h-3 text-[#7A5B2E]" />
               <span>32.0836° N, 72.6711° E • Sargodha</span>
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function EditorialIntro() {
           <div className="lg:col-span-7 flex flex-col justify-center">
             
             {/* Editorial Pull Quote */}
-            <div className="relative mb-6 pl-6 border-l-2 border-[#B99B70]">
+            <div className="relative mb-6 pl-6 border-l-2 border-[#7A5B2E]">
               <p className="text-xl sm:text-2xl font-serif text-[#111318] leading-relaxed italic">
                 &ldquo;I combine thoughtful design, modern frontend development and visual storytelling to create websites that look exceptional and work beautifully.&rdquo;
               </p>
@@ -109,17 +109,17 @@ export default function EditorialIntro() {
               Too many commercial websites are either visually striking but slow and broken to use, or purely functional yet forgettable. I build at the intersection: fusing the visual poise of an award-winning independent studio with the performance, SEO, and conversion discipline required to win paying clients.
             </p>
 
-            {/* Architectural Ruled 3-Column Grid (Replacing generic white cards) */}
+            {/* Architectural Ruled 3-Column Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-[#111318]/15 mb-10">
               
               <div className="group">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono text-xs font-bold text-[#B99B70]">01</span>
-                  <Sparkles className="w-4 h-4 text-[#B99B70] opacity-60 group-hover:opacity-100 transition-opacity" />
+                  <span className="font-mono text-xs font-bold text-[#7A5B2E]">01</span>
+                  <Sparkles className="w-4 h-4 text-[#7A5B2E] opacity-70 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h4 className="font-display font-bold text-sm text-[#111318] mb-1.5 group-hover:text-[#B99B70] transition-colors">
+                <h3 className="font-display font-bold text-sm text-[#111318] mb-1.5 group-hover:text-[#7A5B2E] transition-colors">
                   Art Direction
-                </h4>
+                </h3>
                 <p className="text-xs text-[#111318]/70 leading-relaxed font-light">
                   Bespoke typography, color harmony, and memorable visual language.
                 </p>
@@ -127,12 +127,12 @@ export default function EditorialIntro() {
 
               <div className="group">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono text-xs font-bold text-[#B99B70]">02</span>
+                  <span className="font-mono text-xs font-bold text-[#7A5B2E]">02</span>
                   <Layers className="w-4 h-4 text-[#111318] opacity-60 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h4 className="font-display font-bold text-sm text-[#111318] mb-1.5 group-hover:text-[#B99B70] transition-colors">
+                <h3 className="font-display font-bold text-sm text-[#111318] mb-1.5 group-hover:text-[#7A5B2E] transition-colors">
                   Clean Engineering
-                </h4>
+                </h3>
                 <p className="text-xs text-[#111318]/70 leading-relaxed font-light">
                   Next.js App Router, TypeScript, and microsecond interactions.
                 </p>
@@ -140,12 +140,12 @@ export default function EditorialIntro() {
 
               <div className="group">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono text-xs font-bold text-emerald-600">03</span>
-                  <ShieldCheck className="w-4 h-4 text-emerald-600 opacity-60 group-hover:opacity-100 transition-opacity" />
+                  <span className="font-mono text-xs font-bold text-emerald-800">03</span>
+                  <ShieldCheck className="w-4 h-4 text-emerald-800 opacity-70 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h4 className="font-display font-bold text-sm text-[#111318] mb-1.5 group-hover:text-emerald-700 transition-colors">
+                <h3 className="font-display font-bold text-sm text-[#111318] mb-1.5 group-hover:text-emerald-800 transition-colors">
                   Bilingual RTL/LTR
-                </h4>
+                </h3>
                 <p className="text-xs text-[#111318]/70 leading-relaxed font-light">
                   Native Arabic & English architecture for Gulf market authority.
                 </p>
@@ -156,9 +156,9 @@ export default function EditorialIntro() {
             {/* Quick Link to Services */}
             <div>
               <a
-                href="#services"
+                href="/services"
                 onClick={() => playTick(750)}
-                className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#111318] hover:text-[#B99B70] border-b-2 border-[#111318] hover:border-[#B99B70] pb-1 transition-all"
+                className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#111318] hover:text-[#7A5B2E] border-b-2 border-[#111318] hover:border-[#7A5B2E] pb-1 transition-all"
                 data-cursor-text="SERVICES"
               >
                 <span>Explore Full Service Capabilities</span>

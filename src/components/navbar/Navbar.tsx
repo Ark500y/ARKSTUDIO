@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Menu, X, Clock, Volume2, VolumeX } from "lucide-react";
 import { BRAND_INFO } from "@/data/portfolioData";
@@ -9,8 +9,8 @@ import { playTick, toggleAudio, isAudioEnabled } from "@/utils/audio";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [pktTime, setPktTime] = useState("");
   const [soundOn, setSoundOn] = useState(true);
+  const clockRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,8 +18,9 @@ export default function Navbar() {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // Live PKT (Karachi / Sargodha) Clock
+    // Live PKT (Karachi / Sargodha) Clock using direct DOM update to eliminate React re-renders
     const updateTime = () => {
+      if (!clockRef.current) return;
       try {
         const now = new Date();
         const formatter = new Intl.DateTimeFormat("en-US", {
@@ -29,11 +30,12 @@ export default function Navbar() {
           second: "2-digit",
           hour12: true,
         });
-        setPktTime(formatter.format(now) + " PKT");
+        clockRef.current.textContent = formatter.format(now) + " PKT";
       } catch {
-        setPktTime("12:00:00 PM PKT");
+        clockRef.current.textContent = "PKT UTC+5";
       }
     };
+
     updateTime();
     const interval = setInterval(updateTime, 1000);
 
@@ -117,7 +119,7 @@ export default function Navbar() {
             {/* Audio Feedback Toggle */}
             <button
               onClick={handleSoundToggle}
-              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.06] text-[11px] font-mono text-[#A4A4AD] transition-colors"
+              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.06] text-[11px] font-mono text-[#E2DDD5]/80 transition-colors"
               title={soundOn ? "Mute interactive audio" : "Enable tactile sound"}
               aria-label="Toggle telemetry sound"
             >
@@ -135,13 +137,13 @@ export default function Navbar() {
             </button>
 
             {/* Live Sargodha PKT Pill (Desktop) */}
-            <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06] text-[11px] font-mono text-[#A4A4AD]">
+            <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06] text-[11px] font-mono text-[#E2DDD5]/80">
               <Clock className="w-3 h-3 text-[#B99B70]" />
-              <span>{pktTime || "PKT UTC+5"}</span>
+              <span ref={clockRef}>PKT UTC+5</span>
             </div>
 
             {/* Let's Talk Conversion Button */}
-            <a
+            <Link
               href="/contact"
               onClick={() => playTick(900)}
               className="group relative inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-transparent hover:bg-[#B99B70] border border-[#B99B70]/70 hover:border-[#B99B70] text-[#F2EFE9] hover:text-[#08090D] text-xs font-semibold tracking-wide transition-all duration-300 shadow-[0_0_20px_rgba(185,155,112,0.15)] hover:shadow-[0_0_25px_rgba(185,155,112,0.5)]"
@@ -149,7 +151,7 @@ export default function Navbar() {
             >
               <span>Let&apos;s Talk</span>
               <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+            </Link>
 
             {/* Mobile Menu Toggle Button */}
             <button
@@ -172,7 +174,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between pb-6 border-b border-white/10">
             <div className="flex flex-col">
               <span className="font-display font-bold text-xl text-[#F2EFE9]">ARK®</span>
-              <span className="text-xs text-[#A4A4AD]">Abdul Rehman • Sargodha, PK</span>
+              <span className="text-xs text-[#E2DDD5]/80">Abdul Rehman • Sargodha, PK</span>
             </div>
             <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-mono text-emerald-400">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
@@ -207,8 +209,8 @@ export default function Navbar() {
               <span>WhatsApp Me Directly</span>
               <ArrowUpRight className="w-4 h-4" />
             </a>
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               onClick={() => {
                 playTick(800);
                 setMobileMenuOpen(false);
@@ -216,7 +218,7 @@ export default function Navbar() {
               className="w-full py-3 rounded-full bg-[#B99B70] text-[#08090D] font-semibold text-center text-sm flex items-center justify-center gap-2"
             >
               <span>Start a Project</span>
-            </a>
+            </Link>
           </div>
         </div>
       )}

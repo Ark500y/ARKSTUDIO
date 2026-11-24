@@ -83,7 +83,7 @@ export default function HeroSection({ onSelectProject }: HeroSectionProps) {
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 onClick={() => playTick(900)}
                 className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#F2EFE9]/10 hover:bg-[#F2EFE9]/20 border border-[#F2EFE9]/30 hover:border-[#B99B70]/60 text-[#F2EFE9] font-display font-medium text-sm tracking-wide backdrop-blur-sm transition-all duration-300"
               >
@@ -122,7 +122,7 @@ export default function HeroSection({ onSelectProject }: HeroSectionProps) {
             {["Web Design & Development", "Graphic Design & Branding", "UI/UX Design", "Arabic & English Websites"].map((service) => (
               <a
                 key={service}
-                href="#services"
+                href="/services"
                 onClick={() => playTick(700)}
                 className="group flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#111318]/80 hover:bg-[#111318] border border-white/[0.08] hover:border-[#B99B70]/50 text-[12px] font-mono text-[#E2DDD5] hover:text-[#F2EFE9] transition-all backdrop-blur-sm text-right"
               >
@@ -151,7 +151,7 @@ export default function HeroSection({ onSelectProject }: HeroSectionProps) {
               <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-[#B99B70] mb-1">
                 <span>01</span><span>/</span><span>Featured Projects</span>
               </div>
-              <h3 className="font-display font-bold text-lg text-[#F2EFE9]">Real Work. Real Impact.</h3>
+              <h2 className="font-display font-bold text-lg text-[#F2EFE9]">Real Work. Real Impact.</h2>
               <p className="text-xs text-[#E2DDD5] font-light mt-1">Recent client builds engineered for performance.</p>
             </div>
 
@@ -173,7 +173,7 @@ export default function HeroSection({ onSelectProject }: HeroSectionProps) {
                     />
                     <div className="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-black/80 text-[9px] font-mono text-[#B99B70]">{project.number}</div>
                   </div>
-                  <h4 className="text-xs font-display font-semibold text-[#F2EFE9] group-hover:text-[#B99B70] transition-colors truncate">{project.title}</h4>
+                  <h3 className="text-xs font-display font-semibold text-[#F2EFE9] group-hover:text-[#B99B70] transition-colors truncate">{project.title}</h3>
                   <p className="text-[10px] text-[#E2DDD5] truncate font-light">{project.category}</p>
                 </div>
               ))}

@@ -37,7 +37,7 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-1.5 mb-5 group">
               <span className="font-display font-bold text-3xl tracking-tighter text-[#F2EFE9] group-hover:text-[#B99B70] transition-colors">ARK</span>
               <span className="text-sm font-mono text-[#B99B70]">®</span>
-              <span className="text-[10px] font-mono text-[#E2DDD5]/60 uppercase tracking-widest ml-2">Creative Studio</span>
+              <span className="text-[10px] font-mono text-[#E2DDD5]/80 uppercase tracking-widest ml-2">Creative Studio</span>
             </Link>
 
             <p className="text-sm text-[#E2DDD5] leading-relaxed max-w-sm mb-6 font-light">
@@ -62,7 +62,7 @@ export default function Footer() {
                   <MessageCircle className="w-4 h-4 text-emerald-400" />
                   <span className="text-sm text-[#F2EFE9]">WhatsApp — {BRAND_INFO.contact.phoneDisplay}</span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#E2DDD5]/50 group-hover:text-emerald-400 transition-colors" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#E2DDD5]/70 group-hover:text-emerald-400 transition-colors" />
               </a>
               <a
                 href={`mailto:${BRAND_INFO.contact.email}`}
@@ -72,7 +72,7 @@ export default function Footer() {
                   <Mail className="w-4 h-4 text-[#B99B70]" />
                   <span className="text-sm text-[#F2EFE9] truncate">{BRAND_INFO.contact.email}</span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#E2DDD5]/50 group-hover:text-[#B99B70] transition-colors" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#E2DDD5]/70 group-hover:text-[#B99B70] transition-colors" />
               </a>
             </div>
           </div>
@@ -133,17 +133,17 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#E2DDD5]/60">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#E2DDD5]/75">
           <div className="flex items-center gap-2">
             <span>© {new Date().getFullYear()} ARK® — Abdul Rehman.</span>
             <span className="hidden sm:inline">·</span>
             <span className="hidden sm:inline">All rights reserved.</span>
           </div>
           <div className="flex items-center gap-6">
-            <span className="text-[#E2DDD5]/40">Sargodha, Pakistan · PKT UTC+5</span>
+            <span className="text-[#E2DDD5]/70">Sargodha, Pakistan · PKT UTC+5</span>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-[#E2DDD5]/60 hover:text-[#B99B70] transition-colors"
+              className="flex items-center gap-1.5 text-[#E2DDD5]/75 hover:text-[#B99B70] transition-colors"
               aria-label="Back to top"
             >
               <span>Top</span>

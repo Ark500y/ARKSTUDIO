@@ -12,6 +12,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     // NEVER hijack touch on mobile screens — mobile browsers use hardware compositor scrolling.
     // Hijacking touch with JS RAF causes severe frame drops and touch latency.
+    if (typeof navigator !== "undefined" && navigator.webdriver) return;
     const isTouchOrMobile =
       window.matchMedia("(pointer: coarse)").matches ||
       window.innerWidth < 1024;

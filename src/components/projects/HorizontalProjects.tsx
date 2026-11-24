@@ -65,7 +65,7 @@ export default function HorizontalProjects({
             <h2 className="font-display font-bold text-3xl sm:text-5xl text-[#F2EFE9] tracking-tight">
               Selected Projects & Case Studies
             </h2>
-            <p className="text-sm text-[#A4A4AD] font-light mt-2 max-w-xl">
+            <p className="text-sm text-[#E2DDD5]/85 font-light mt-2 max-w-xl">
               Real projects delivered for commercial clients across Saudi Arabia, the UAE, and Pakistan.
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function HorizontalProjects({
                   {project.number}
                 </span>
                 <span className="text-white/20">/</span>
-                <span className="text-xs font-mono uppercase tracking-wider text-[#A4A4AD]">
+                <span className="text-xs font-mono uppercase tracking-wider text-[#E2DDD5]/80">
                   {project.category}
                 </span>
               </div>
@@ -141,7 +141,7 @@ export default function HorizontalProjects({
                   <div className="w-2 h-2 rounded-full bg-amber-500/70" />
                   <div className="w-2 h-2 rounded-full bg-emerald-500/70" />
                 </div>
-                <div className="text-[9px] font-mono text-[#A4A4AD] opacity-80 truncate max-w-[200px]">
+                <div className="text-[9px] font-mono text-[#E2DDD5]/80 opacity-90 truncate max-w-[200px]">
                   {project.client}
                 </div>
                 <div className="w-4" />
@@ -171,7 +171,7 @@ export default function HorizontalProjects({
                 <h3 className="font-display font-bold text-xl sm:text-2xl text-[#F2EFE9] group-hover:text-[#B99B70] transition-colors mb-2">
                   {project.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#A4A4AD] leading-relaxed mb-4 line-clamp-2">
+                <p className="text-xs sm:text-sm text-[#E2DDD5]/80 leading-relaxed mb-4 line-clamp-2">
                   {project.shortDesc}
                 </p>
 
