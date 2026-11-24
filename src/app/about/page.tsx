@@ -104,6 +104,7 @@ export default function AboutPage() {
                   src="/images/abdulrehman-portrait-red.jpg"
                   alt="Abdul Rehman — ARK® Creative Studio Founder"
                   fill
+                  sizes="(max-width: 768px) 100vw, 420px"
                   className="object-cover object-top"
                   priority
                 />

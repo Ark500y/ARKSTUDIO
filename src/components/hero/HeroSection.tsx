@@ -2,10 +2,15 @@
 
 import React from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { ArrowUpRight, ArrowRight, MapPin } from "lucide-react";
-import Hero3DCanvas from "./Hero3DCanvas";
 import { BRAND_INFO, PROJECTS, Project } from "@/data/portfolioData";
 import { playTick } from "@/utils/audio";
+
+const Hero3DCanvas = dynamic(() => import("./Hero3DCanvas"), {
+  ssr: false,
+  loading: () => null,
+});
 
 interface HeroSectionProps {
   onSelectProject?: (project: Project) => void;
@@ -17,14 +22,19 @@ export default function HeroSection({ onSelectProject }: HeroSectionProps) {
       id="hero"
       className="relative min-h-screen w-full bg-[#08090D] text-[#F2EFE9] flex flex-col justify-between pt-24 sm:pt-32 pb-8 overflow-hidden scroll-mt-24"
     >
-      {/* Background — strong dark overlay so text is always readable */}
+      {/* Background — lightweight radial gradient (zero GPU blur overhead) */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[#B99B70]/12 via-[#A78BFA]/8 to-transparent blur-[160px]" />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{
+            background: "radial-gradient(circle, rgba(185,155,112,0.14) 0%, rgba(167,139,250,0.06) 45%, transparent 70%)",
+          }}
+        />
         {/* Strong vignette to ensure text readability over 3D canvas */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#08090D]/70 via-[#08090D]/50 to-[#08090D]/80" />
       </div>
 
-      {/* 3D WebGL Canvas — behind everything */}
+      {/* 3D WebGL Canvas — loaded asynchronously behind everything */}
       <Hero3DCanvas />
 
       {/* Main Content — z-20 above canvas */}
@@ -154,7 +164,13 @@ export default function HeroSection({ onSelectProject }: HeroSectionProps) {
                   className="group relative p-2.5 rounded-xl bg-[#111318] hover:bg-[#1A1D24] border border-white/[0.08] hover:border-[#B99B70]/50 cursor-pointer transition-all duration-300"
                 >
                   <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden mb-2 bg-black/40">
-                    <Image src={project.image} alt={project.title} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 220px"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
                     <div className="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-black/80 text-[9px] font-mono text-[#B99B70]">{project.number}</div>
                   </div>
                   <h4 className="text-xs font-display font-semibold text-[#F2EFE9] group-hover:text-[#B99B70] transition-colors truncate">{project.title}</h4>

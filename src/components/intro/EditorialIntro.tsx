@@ -12,8 +12,13 @@ export default function EditorialIntro() {
       id="about"
       className="relative w-full bg-[#F2EFE9] text-[#111318] py-28 sm:py-36 overflow-hidden transition-colors scroll-mt-20"
     >
-      {/* Editorial Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-[#B99B70]/10 rounded-full blur-[120px] pointer-events-none" />
+      {/* Editorial Decorative Background Elements — lightweight gradient */}
+      <div
+        className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(185,155,112,0.12) 0%, transparent 70%)",
+        }}
+      />
       <div className="absolute -left-16 top-1/2 -translate-y-1/2 select-none pointer-events-none opacity-[0.03] font-display font-black text-[240px] leading-none tracking-tighter text-[#111318]">
         ARK
       </div>
@@ -59,6 +64,7 @@ export default function EditorialIntro() {
                   src="/images/abdulrehman-portrait-red.jpg"
                   alt="Abdul Rehman — Creative Developer"
                   fill
+                  sizes="(max-width: 768px) 100vw, 390px"
                   className="object-cover object-top filter grayscale contrast-105 group-hover:filter-none transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#08090D] via-transparent to-transparent opacity-65" />

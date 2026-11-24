@@ -1,8 +1,35 @@
 import type { Metadata, Viewport } from "next";
+import { Space_Grotesk, Instrument_Serif, Inter, Cairo } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import CustomCursor from "@/components/cursor/CustomCursor";
 import { BRAND_INFO } from "@/data/portfolioData";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const cairo = Cairo({
+  subsets: ["arabic", "latin"],
+  variable: "--font-arabic",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   themeColor: "#08090D",
@@ -143,7 +170,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdService) }}
         />
       </head>
-      <body className="bg-[#08090D] text-[#F2EFE9] antialiased selection:bg-[#B99B70] selection:text-[#08090D]">
+      <body className={`${spaceGrotesk.variable} ${instrumentSerif.variable} ${inter.variable} ${cairo.variable} bg-[#08090D] text-[#F2EFE9] antialiased selection:bg-[#B99B70] selection:text-[#08090D]`}>
         <SmoothScroll>
           <CustomCursor />
           {children}

@@ -124,6 +124,7 @@ export default function AboutStudio() {
                   src="/images/abdulrehman-portrait-red.jpg"
                   alt="Abdul Rehman Portfolio Studio"
                   fill
+                  sizes="(max-width: 768px) 100vw, 370px"
                   className="object-cover object-top"
                 />
               </div>

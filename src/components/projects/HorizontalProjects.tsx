@@ -44,8 +44,13 @@ export default function HorizontalProjects({
       id="projects"
       className="relative w-full bg-[#111318] text-[#F2EFE9] py-28 sm:py-36 overflow-hidden border-t border-white/[0.06] scroll-mt-20"
     >
-      {/* Background Ambience */}
-      <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#B99B70]/5 rounded-full blur-[140px] pointer-events-none" />
+      {/* Background Ambience — lightweight radial gradient */}
+      <div
+        className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(185,155,112,0.06) 0%, transparent 70%)",
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         {/* Header Telemetry */}
@@ -148,6 +153,7 @@ export default function HorizontalProjects({
                   src={project.image}
                   alt={project.title}
                   fill
+                  sizes="(max-width: 768px) 88vw, (max-width: 1200px) 540px, 620px"
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">

@@ -10,10 +10,16 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
+    // NEVER hijack touch on mobile screens — mobile browsers use hardware compositor scrolling.
+    // Hijacking touch with JS RAF causes severe frame drops and touch latency.
+    const isTouchOrMobile =
+      window.matchMedia("(pointer: coarse)").matches ||
+      window.innerWidth < 1024;
+    if (isTouchOrMobile) return;
+
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 1.5,
       infinite: false,
     });
 

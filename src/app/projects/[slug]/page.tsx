@@ -44,6 +44,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
           src={project.image}
           alt={project.title}
           fill
+          sizes="100vw"
           className="object-cover object-center"
           priority
         />
@@ -128,6 +129,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
                   src={project.secondaryImage}
                   alt={`${project.title} — secondary view`}
                   fill
+                  sizes="(max-width: 768px) 100vw, 800px"
                   className="object-cover"
                 />
               </div>

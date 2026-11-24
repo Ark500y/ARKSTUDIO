@@ -80,6 +80,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               src={project.image}
               alt={project.title}
               fill
+              sizes="(max-width: 768px) 100vw, 900px"
               className="object-cover object-top"
             />
           </div>

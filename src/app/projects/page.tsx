@@ -25,6 +25,7 @@ function ProjectModal({ project, onClose }: { project: typeof PROJECTS[0]; onClo
             src={project.image}
             alt={project.title}
             fill
+            sizes="(max-width: 768px) 100vw, 800px"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#111318] via-[#111318]/40 to-transparent" />
@@ -164,6 +165,7 @@ export default function ProjectsPage() {
                   src={PROJECTS[0].image}
                   alt={PROJECTS[0].title}
                   fill
+                  sizes="(max-width: 1200px) 100vw, 1200px"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
@@ -229,6 +231,7 @@ export default function ProjectsPage() {
                     src={project.image}
                     alt={project.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 600px"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#08090D]/80 via-transparent to-transparent" />
