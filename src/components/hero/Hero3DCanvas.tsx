@@ -81,12 +81,6 @@ export default function Hero3DCanvas() {
       envTexture.dispose();
     }
 
-    // Check if running under headless/Lighthouse/bot environment
-    const isBotOrLighthouse =
-      typeof navigator !== "undefined" &&
-      (Boolean(navigator.webdriver) ||
-        /bot|crawler|spider|lighthouse|headlesschrome|headless/i.test(navigator.userAgent));
-
     // Group for interaction
     const sculptureGroup = new THREE.Group();
     scene.add(sculptureGroup);
@@ -252,78 +246,20 @@ export default function Hero3DCanvas() {
       particleMat.dispose();
     };
 
-    // If Lighthouse/Bot is analyzing the page: stop here! One beautiful frame is rendered, TBT = 0ms.
-    if (isBotOrLighthouse) {
-      return cleanupResources;
-    }
-
-    // Mouse Tracking (desktop only)
-    let targetMouseX = 0;
-    let targetMouseY = 0;
-    let currentMouseX = 0;
-    let currentMouseY = 0;
-    let scrollYOffset = 0;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / width - 0.5;
-      const y = (e.clientY - rect.top) / height - 0.5;
-      targetMouseX = x * 1.4;
-      targetMouseY = y * 1.4;
-    };
-
-    const handleScroll = () => {
-      if (window.scrollY < height * 1.2) {
-        scrollYOffset = window.scrollY * 0.0012;
-      }
-    };
-
-    if (!isMobile) {
-      window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    // Resize Handler
-    const handleResize = () => {
-      if (!container) return;
-      width = container.clientWidth;
-      height = container.clientHeight;
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
-      renderer.render(scene, camera);
-    };
-
-    const resizeObserver = new ResizeObserver(() => handleResize());
-    resizeObserver.observe(container);
-
-    // Frame-rate throttle & tab visibility control
+    // Interaction-Driven Render Architecture (0% CPU when idle / auditing)
     let isIntersecting = true;
     let isTabVisible = !document.hidden;
     let animationFrameId = 0;
-    let startTimer: ReturnType<typeof setTimeout> | null = null;
-    let lastFrameTime = 0;
-    // 30fps on mobile (~33.3ms), 60fps on desktop (~16.6ms)
-    const targetFps = isMobile ? 30 : 60;
-    const frameInterval = 1000 / targetFps;
+    let framesRemaining = 0;
+    let isLoopActive = false;
     const clock = new THREE.Clock();
 
-    const animate = (timestamp: number) => {
-      if (!isIntersecting || !isTabVisible) return;
-
-      animationFrameId = requestAnimationFrame(animate);
-
-      const delta = timestamp - lastFrameTime;
-      if (delta < frameInterval) return;
-      lastFrameTime = timestamp - (delta % frameInterval);
-
+    const render = () => {
       const elapsedTime = clock.getElapsedTime();
 
       // Smooth lerp for desktop mouse interaction
-      if (!isMobile) {
-        currentMouseX += (targetMouseX - currentMouseX) * 0.05;
-        currentMouseY += (targetMouseY - currentMouseY) * 0.05;
-      }
+      currentMouseX += (targetMouseX - currentMouseX) * 0.08;
+      currentMouseY += (targetMouseY - currentMouseY) * 0.08;
 
       // Rotate central sculpture
       knotMesh.rotation.x = elapsedTime * 0.18 + currentMouseY * 0.4 + scrollYOffset;
@@ -348,22 +284,79 @@ export default function Hero3DCanvas() {
       particleSystem.rotation.y = elapsedTime * 0.03;
 
       // Group slight tilt towards mouse
-      if (!isMobile) {
-        sculptureGroup.rotation.y = currentMouseX * 0.2;
-        sculptureGroup.rotation.x = -currentMouseY * 0.2;
-      }
+      sculptureGroup.rotation.y = currentMouseX * 0.2;
+      sculptureGroup.rotation.x = -currentMouseY * 0.2;
 
       renderer.render(scene, camera);
     };
 
+    const loop = () => {
+      if (!isIntersecting || !isTabVisible || framesRemaining <= 0) {
+        isLoopActive = false;
+        return;
+      }
+      framesRemaining--;
+      render();
+      animationFrameId = requestAnimationFrame(loop);
+    };
+
+    const wakeRenderer = (frames = 35) => {
+      if (!isIntersecting || !isTabVisible) return;
+      framesRemaining = Math.max(framesRemaining, frames);
+      if (!isLoopActive) {
+        isLoopActive = true;
+        clock.start();
+        animationFrameId = requestAnimationFrame(loop);
+      }
+    };
+
+    // Mouse Tracking (desktop only)
+    let targetMouseX = 0;
+    let targetMouseY = 0;
+    let currentMouseX = 0;
+    let currentMouseY = 0;
+    let scrollYOffset = 0;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = container.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / width - 0.5;
+      const y = (e.clientY - rect.top) / height - 0.5;
+      targetMouseX = x * 1.4;
+      targetMouseY = y * 1.4;
+      wakeRenderer(45);
+    };
+
+    const handleScroll = () => {
+      if (window.scrollY < height * 1.2) {
+        scrollYOffset = window.scrollY * 0.0012;
+        wakeRenderer(20);
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Resize Handler
+    const handleResize = () => {
+      if (!container) return;
+      width = container.clientWidth;
+      height = container.clientHeight;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+      render();
+    };
+
+    const resizeObserver = new ResizeObserver(() => handleResize());
+    resizeObserver.observe(container);
+
     const handleVisibilityChange = () => {
       isTabVisible = !document.hidden;
       if (isTabVisible && isIntersecting) {
-        lastFrameTime = performance.now();
-        cancelAnimationFrame(animationFrameId);
-        animationFrameId = requestAnimationFrame(animate);
+        wakeRenderer(20);
       } else {
         cancelAnimationFrame(animationFrameId);
+        isLoopActive = false;
       }
     };
     document.addEventListener("visibilitychange", handleVisibilityChange);
@@ -372,34 +365,25 @@ export default function Hero3DCanvas() {
       ([entry]) => {
         isIntersecting = entry.isIntersecting;
         if (isIntersecting && isTabVisible) {
-          clock.start();
-          lastFrameTime = performance.now();
-          cancelAnimationFrame(animationFrameId);
-          animationFrameId = requestAnimationFrame(animate);
+          wakeRenderer(30);
         } else {
           cancelAnimationFrame(animationFrameId);
+          isLoopActive = false;
         }
       },
       { threshold: 0.02 }
     );
     intersectionObserver.observe(container);
 
-    // Defer animation loop start by 500ms to allow smooth page load and hydration
-    startTimer = setTimeout(() => {
-      lastFrameTime = performance.now();
-      clock.start();
-      animationFrameId = requestAnimationFrame(animate);
-    }, 500);
+    // Initial render
+    render();
 
     return () => {
-      if (startTimer) clearTimeout(startTimer);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       intersectionObserver.disconnect();
       resizeObserver.disconnect();
       cancelAnimationFrame(animationFrameId);
-      if (!isMobile) {
-        window.removeEventListener("mousemove", handleMouseMove);
-      }
+      window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("scroll", handleScroll);
       cleanupResources();
     };

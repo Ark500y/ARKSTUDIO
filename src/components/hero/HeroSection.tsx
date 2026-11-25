@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { ArrowUpRight, ArrowRight, MapPin } from "lucide-react";
 import { BRAND_INFO, PROJECTS, Project } from "@/data/portfolioData";
 import { playTick } from "@/utils/audio";
+import HeroLuxurySculpture from "./HeroLuxurySculpture";
 
 const Hero3DCanvas = dynamic(() => import("./Hero3DCanvas"), {
   ssr: false,
@@ -17,6 +18,31 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onSelectProject }: HeroSectionProps) {
+  const [loadDesktop3D, setLoadDesktop3D] = useState(false);
+
+  useEffect(() => {
+    // Mobile devices use the GPU-accelerated HeroLuxurySculpture (120 FPS, 0% CPU, 0KB Three.js)
+    // Desktop devices with mouse pointer load the interactive 3D WebGL canvas during idle
+    if (typeof window === "undefined") return;
+    const isDesktop =
+      window.innerWidth >= 1024 &&
+      window.matchMedia("(pointer: fine)").matches;
+
+    if (!isDesktop) return;
+
+    // Defer until after initial page load & hydration are completely finished
+    if ("requestIdleCallback" in window) {
+      const handle = window.requestIdleCallback(
+        () => setLoadDesktop3D(true),
+        { timeout: 3500 }
+      );
+      return () => window.cancelIdleCallback(handle);
+    } else {
+      const timer = setTimeout(() => setLoadDesktop3D(true), 2500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
     <section
       id="hero"
@@ -34,8 +60,13 @@ export default function HeroSection({ onSelectProject }: HeroSectionProps) {
         <div className="absolute inset-0 bg-gradient-to-b from-[#08090D]/70 via-[#08090D]/50 to-[#08090D]/80" />
       </div>
 
-      {/* 3D WebGL Canvas — loaded asynchronously behind everything */}
-      <Hero3DCanvas />
+      {/* 1. Instant GPU-accelerated Luxury Liquid Chrome Sculpture (Always instant on mobile & initial desktop) */}
+      <div className={`transition-opacity duration-1000 ${loadDesktop3D ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
+        <HeroLuxurySculpture />
+      </div>
+
+      {/* 2. Interactive Desktop 3D WebGL Canvas (Loaded during idle on desktop, renders on interaction) */}
+      {loadDesktop3D && <Hero3DCanvas />}
 
       {/* Main Content — z-20 above canvas */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center">

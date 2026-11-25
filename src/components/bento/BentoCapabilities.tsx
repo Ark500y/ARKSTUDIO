@@ -64,7 +64,7 @@ export default function BentoCapabilities() {
               Engineered Without Compromise.
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-[#A4A4AD] font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-[#E2DDD5]/85 font-light leading-relaxed">
             Six disciplined core capabilities designed to take businesses from an ambiguous concept to a world-class digital brand.
           </p>
         </div>
@@ -86,13 +86,13 @@ export default function BentoCapabilities() {
               <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#F2EFE9] group-hover:text-[#B99B70] transition-colors mb-2">
                 Website Design & Development
               </h3>
-              <p className="text-xs sm:text-sm text-[#A4A4AD] leading-relaxed max-w-xl mb-6 font-light">
+              <p className="text-xs sm:text-sm text-[#E2DDD5]/85 leading-relaxed max-w-xl mb-6 font-light">
                 Bespoke digital platforms engineered from scratch using Next.js 16, React 19, and TypeScript. No sluggish WordPress plugins, no rigid site builder templates, just blazing-fast handcrafted web software.
               </p>
             </div>
 
             {/* Interactive Code Preview Terminal */}
-            <div className="w-full rounded-xl bg-black/70 border border-white/10 p-4 font-mono text-[11px] sm:text-xs text-[#A4A4AD] shadow-inner mb-6 overflow-x-auto">
+            <div className="w-full rounded-xl bg-black/70 border border-white/10 p-4 font-mono text-[11px] sm:text-xs text-[#E2DDD5]/80 shadow-inner mb-6 overflow-x-auto">
               <div className="flex items-center justify-between pb-2 mb-3 border-b border-white/[0.06] text-[10px] text-white/40">
                 <div className="flex items-center gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
@@ -127,7 +127,7 @@ export default function BentoCapabilities() {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/[0.06]">
               {["Modular React 19", "Server Actions", "Zero Layout Shift", "Edge Caching"].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-xs text-[#A4A4AD]">
+                <div key={item} className="flex items-center gap-2 text-xs text-[#E2DDD5]/80">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B99B70] shrink-0" />
                   <span className="truncate">{item}</span>
                 </div>
@@ -147,7 +147,7 @@ export default function BentoCapabilities() {
               <h3 className="font-display font-bold text-xl sm:text-2xl text-[#F2EFE9] group-hover:text-[#B99B70] transition-colors mb-2">
                 Brand Identity & Graphic Art
               </h3>
-              <p className="text-xs text-[#A4A4AD] leading-relaxed mb-6 font-light">
+              <p className="text-xs text-[#E2DDD5]/80 leading-relaxed mb-6 font-light">
                 Vector logo systems, typographic marks, color rules, and promotional artwork that etch your business in memory.
               </p>
             </div>
@@ -158,7 +158,7 @@ export default function BentoCapabilities() {
                 <span className="font-display font-black text-2xl tracking-tighter text-[#F2EFE9]">
                   ARK<span className="text-[#B99B70]">®</span>
                 </span>
-                <span className="text-[10px] font-mono text-[#A4A4AD]">Click Swatch to Copy</span>
+                <span className="text-[10px] font-mono text-[#E2DDD5]/70">Click Swatch to Copy</span>
               </div>
               <div className="grid grid-cols-4 gap-2">
                 {brandSwatches.map((swatch) => (
@@ -181,7 +181,7 @@ export default function BentoCapabilities() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-2 pt-4 border-t border-white/[0.06] text-xs text-[#A4A4AD]">
+            <div className="flex flex-col gap-2 pt-4 border-t border-white/[0.06] text-xs text-[#E2DDD5]/80">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#B99B70]" />
                 <span>Vector Typography & Logomarks</span>
@@ -205,7 +205,7 @@ export default function BentoCapabilities() {
               <h3 className="font-display font-bold text-xl sm:text-2xl text-[#F2EFE9] group-hover:text-[#B99B70] transition-colors mb-2">
                 UI/UX & Design Systems
               </h3>
-              <p className="text-xs text-[#A4A4AD] leading-relaxed mb-6 font-light">
+              <p className="text-xs text-[#E2DDD5]/80 leading-relaxed mb-6 font-light">
                 Precision Figma wireframing and design systems built around psychological conversion funnels.
               </p>
             </div>
@@ -213,7 +213,7 @@ export default function BentoCapabilities() {
             {/* Interactive Wireframe vs High-Fidelity Switch */}
             <div className="p-3.5 rounded-xl bg-black/60 border border-white/10 mb-6">
               <div className="flex items-center justify-between mb-3 text-[10px] font-mono">
-                <span className="text-[#A4A4AD]">Figma Viewport</span>
+                <span className="text-[#E2DDD5]/70">Figma Viewport</span>
                 <div className="flex bg-white/5 p-0.5 rounded-md">
                   <button
                     onClick={() => {
@@ -221,7 +221,7 @@ export default function BentoCapabilities() {
                       setUiTab("wireframe");
                     }}
                     className={`px-2.5 py-1 rounded transition-colors ${
-                      uiTab === "wireframe" ? "bg-[#B99B70] text-black font-semibold" : "text-[#A4A4AD]"
+                      uiTab === "wireframe" ? "bg-[#B99B70] text-black font-semibold" : "text-[#E2DDD5]/70"
                     }`}
                   >
                     Wireframe
@@ -232,7 +232,7 @@ export default function BentoCapabilities() {
                       setUiTab("interface");
                     }}
                     className={`px-2.5 py-1 rounded transition-colors ${
-                      uiTab === "interface" ? "bg-[#B99B70] text-black font-semibold" : "text-[#A4A4AD]"
+                      uiTab === "interface" ? "bg-[#B99B70] text-black font-semibold" : "text-[#E2DDD5]/70"
                     }`}
                   >
                     UI Design
@@ -252,7 +252,7 @@ export default function BentoCapabilities() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-2 pt-4 border-t border-white/[0.06] text-xs text-[#A4A4AD]">
+            <div className="flex flex-col gap-2 pt-4 border-t border-white/[0.06] text-xs text-[#E2DDD5]/80">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#B99B70]" />
                 <span>Conversion Rate Optimization</span>
@@ -280,7 +280,7 @@ export default function BentoCapabilities() {
                       setBilingualActive("en");
                     }}
                     className={`px-3 py-1 rounded-full transition-all ${
-                      bilingualActive === "en" ? "bg-[#B99B70] text-black font-bold" : "text-[#A4A4AD]"
+                      bilingualActive === "en" ? "bg-[#B99B70] text-black font-bold" : "text-[#E2DDD5]/70"
                     }`}
                   >
                     English (LTR)
@@ -291,7 +291,7 @@ export default function BentoCapabilities() {
                       setBilingualActive("ar");
                     }}
                     className={`px-3 py-1 rounded-full transition-all ${
-                      bilingualActive === "ar" ? "bg-[#B99B70] text-black font-bold" : "text-[#A4A4AD]"
+                      bilingualActive === "ar" ? "bg-[#B99B70] text-black font-bold" : "text-[#E2DDD5]/70"
                     }`}
                   >
                     العربية (RTL)
@@ -302,7 +302,7 @@ export default function BentoCapabilities() {
               <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#F2EFE9] group-hover:text-[#B99B70] transition-colors mb-2">
                 Arabic & English Bilingual Engineering
               </h3>
-              <p className="text-xs sm:text-sm text-[#A4A4AD] leading-relaxed max-w-xl mb-6 font-light">
+              <p className="text-xs sm:text-sm text-[#E2DDD5]/85 leading-relaxed max-w-xl mb-6 font-light">
                 Specialized in Middle Eastern commercial expansion (Saudi Arabia & UAE). True bidirectional RTL/LTR layout logic with native Arabic typographic rhythm.
               </p>
             </div>
@@ -329,7 +329,7 @@ export default function BentoCapabilities() {
                   ? "رفع الأثقال بكل احترافية — خدمات الرافعات المتطورة"
                   : "Heavy Lifting Done Right — Industrial Boom Truck Services"}
               </h4>
-              <p className="text-xs sm:text-sm text-[#A4A4AD] mb-4 font-light">
+              <p className="text-xs sm:text-sm text-[#E2DDD5]/80 mb-4 font-light">
                 {bilingualActive === "ar"
                   ? "حلول آمنة وسريعة للمقاولات والمشاريع الصناعية في المنطقة الشرقية بالمملكة العربية السعودية."
                   : "Safe, efficient and reliable boom truck lifting solutions for logistics and industrial contractors."}
@@ -338,13 +338,13 @@ export default function BentoCapabilities() {
                 <span className="px-4 py-2 rounded-full bg-[#B99B70] text-black text-xs font-semibold">
                   {bilingualActive === "ar" ? "تواصل عبر واتساب" : "WhatsApp Me"}
                 </span>
-                <span className="text-xs font-mono text-[#A4A4AD]">
+                <span className="text-xs font-mono text-[#E2DDD5]/80">
                   {bilingualActive === "ar" ? "اتصال فوري: 059 403 2500" : "Direct Call: 059 403 2500"}
                 </span>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4 pt-4 border-t border-white/[0.06] text-xs text-[#A4A4AD]">
+            <div className="flex flex-wrap gap-4 pt-4 border-t border-white/[0.06] text-xs text-[#E2DDD5]/80">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#B99B70]" />
                 KSA & UAE Local Directory SEO
@@ -372,7 +372,7 @@ export default function BentoCapabilities() {
               <h3 className="font-display font-bold text-xl sm:text-2xl text-[#F2EFE9] group-hover:text-[#B99B70] transition-colors mb-2">
                 AI-Assisted Accelerated Workflow
               </h3>
-              <p className="text-xs sm:text-sm text-[#A4A4AD] leading-relaxed mb-6 font-light">
+              <p className="text-xs sm:text-sm text-[#E2DDD5]/85 leading-relaxed mb-6 font-light">
                 Leveraging state-of-the-art AI workflows to eliminate repetitive boilerplate, synthesize clean data schemas, and deliver studio-grade custom code at unmatched turnarounds.
               </p>
             </div>
@@ -381,19 +381,19 @@ export default function BentoCapabilities() {
             <div className="grid grid-cols-3 gap-3 p-4 rounded-xl bg-black/60 border border-white/10 mb-6 text-center">
               <div>
                 <div className="font-display font-bold text-xl text-emerald-400">3x</div>
-                <div className="text-[10px] font-mono text-[#A4A4AD] mt-0.5">Faster Delivery</div>
+                <div className="text-[10px] font-mono text-[#E2DDD5]/80 mt-0.5">Faster Delivery</div>
               </div>
               <div>
                 <div className="font-display font-bold text-xl text-[#B99B70]">0%</div>
-                <div className="text-[10px] font-mono text-[#A4A4AD] mt-0.5">Code Bloat</div>
+                <div className="text-[10px] font-mono text-[#E2DDD5]/80 mt-0.5">Code Bloat</div>
               </div>
               <div>
                 <div className="font-display font-bold text-xl text-[#F2EFE9]">100%</div>
-                <div className="text-[10px] font-mono text-[#A4A4AD] mt-0.5">Hand-Crafted</div>
+                <div className="text-[10px] font-mono text-[#E2DDD5]/80 mt-0.5">Hand-Crafted</div>
               </div>
             </div>
 
-            <div className="flex flex-col gap-2 pt-4 border-t border-white/[0.06] text-xs text-[#A4A4AD]">
+            <div className="flex flex-col gap-2 pt-4 border-t border-white/[0.06] text-xs text-[#E2DDD5]/80">
               <div className="flex items-center gap-2">
                 <Zap className="w-3.5 h-3.5 text-[#B99B70]" />
                 <span>Rapid iterative prototyping and live staging</span>
@@ -417,7 +417,7 @@ export default function BentoCapabilities() {
               <h3 className="font-display font-bold text-xl sm:text-2xl text-[#F2EFE9] group-hover:text-[#B99B70] transition-colors mb-2">
                 Technical SEO & Core Web Vitals
               </h3>
-              <p className="text-xs sm:text-sm text-[#A4A4AD] leading-relaxed mb-6 font-light">
+              <p className="text-xs sm:text-sm text-[#E2DDD5]/85 leading-relaxed mb-6 font-light">
                 Clean semantic HTML5, valid Schema.org JSON-LD microdata, Open Graph tags, and sub-second load times engineered to win Google rankings.
               </p>
             </div>
@@ -454,14 +454,14 @@ export default function BentoCapabilities() {
                       {item.score}
                     </span>
                   </div>
-                  <span className="text-[9px] font-mono text-[#A4A4AD] leading-tight">
+                  <span className="text-[9px] font-mono text-[#E2DDD5]/80 leading-tight">
                     {item.label}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="flex flex-col gap-2 pt-4 border-t border-white/[0.06] text-xs text-[#A4A4AD]">
+            <div className="flex flex-col gap-2 pt-4 border-t border-white/[0.06] text-xs text-[#E2DDD5]/80">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#B99B70]" />
                 <span>Rich Snippet Structured Data (Person & ProfessionalService)</span>

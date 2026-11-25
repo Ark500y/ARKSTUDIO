@@ -29,7 +29,7 @@ export default function FAQSection() {
               Transparent Answers.
             </span>
           </h2>
-          <p className="text-sm text-[#A4A4AD] font-light max-w-lg mx-auto">
+          <p className="text-sm text-[#E2DDD5]/85 font-light max-w-lg mx-auto">
             Everything you need to know about working with ARK® on your next design or development project.
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function FAQSection() {
                   </span>
                   <div
                     className={`p-1.5 rounded-full border border-white/10 shrink-0 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 bg-[#B99B70] text-[#08090D]" : "text-[#A4A4AD]"
+                      isOpen ? "rotate-180 bg-[#B99B70] text-[#08090D]" : "text-[#E2DDD5]/75"
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -61,7 +61,7 @@ export default function FAQSection() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-6 sm:px-6 text-xs sm:text-sm text-[#A4A4AD] leading-relaxed border-t border-white/[0.04] pt-4 animate-fade-in font-light">
+                  <div className="px-5 pb-6 sm:px-6 text-xs sm:text-sm text-[#E2DDD5]/85 leading-relaxed border-t border-white/[0.04] pt-4 animate-fade-in font-light">
                     {item.a}
                   </div>
                 )}

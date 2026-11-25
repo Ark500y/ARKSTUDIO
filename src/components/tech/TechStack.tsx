@@ -61,7 +61,7 @@ export default function TechStack() {
               Zero Fabricated Claims.
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-[#A4A4AD] font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-[#E2DDD5]/85 font-light leading-relaxed">
             Only modern tools and frameworks with genuine, production-tested capability are listed. Every site is engineered to endure.
           </p>
         </div>
@@ -88,7 +88,7 @@ export default function TechStack() {
                         <span>{item.name}</span>
                         <span className="w-1.5 h-1.5 rounded-full bg-[#B99B70]/60" />
                       </div>
-                      <span className="text-[11px] font-mono text-[#A4A4AD] mt-0.5">
+                      <span className="text-[11px] font-mono text-[#E2DDD5]/75 mt-0.5">
                         {item.level}
                       </span>
                     </div>
